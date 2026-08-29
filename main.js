@@ -120,3 +120,15 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
+
+
+// 스크롤 감지: top-util 숨기고 header-main만 고정
+const header = document.querySelector('.header');
+
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 40) {
+    header.classList.add('scrolled');
+  } else {
+    header.classList.remove('scrolled');
+  }
+});
