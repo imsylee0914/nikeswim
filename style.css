@@ -45,7 +45,7 @@ img {
 }
 
 
-/* ==================== 3. 최상단 헤더 (Header - 중앙 정렬 유지 & 겹침 방지) ==================== */
+/* ==================== 3. 최상단 헤더 (Header) ==================== */
 .header {
   position: absolute;
   top: 0;
@@ -161,7 +161,6 @@ img {
   filter: brightness(0);
 }
 
-/* GNB: 중앙 정렬 절대위치 복구 */
 .gnb {
   position: absolute;
   left: 50%;
@@ -176,7 +175,6 @@ img {
   position: static;
 }
 
-/* clamp를 활용해 화면 폭 축소 시 카테고리 간격을 스스로 줄이도록 처리 */
 .gnb > ul {
   display: flex;
   align-items: center;
@@ -223,7 +221,6 @@ img {
   justify-content: flex-end;
 }
 
-/* 화면 줄어들 때 검색창 너비를 자연스럽게 축소하여 중앙 GNB 침범 방지 */
 .search-box {
   position: relative;
   align-items: center;
@@ -312,7 +309,7 @@ img {
 }
 
 
-/* ==================== 태블릿/PC 경계선 보정 (1025px ~ 1300px 대응) ==================== */
+/* ==================== 태블릿/PC 경계선 대응 (1025px ~ 1300px) ==================== */
 @media screen and (min-width: 1025px) and (max-width: 1300px) {
   .header-inner {
     padding: 10px 30px;
@@ -322,7 +319,6 @@ img {
     font-size: 15px;
   }
 
-  /* 좁은 PC/태블릿 화면에서 검색창 텍스트 숨김 처리로 깔끔한 정렬 유지를 도모 */
   .search-box input {
     font-size: 12px;
   }
@@ -986,21 +982,26 @@ img {
   gap: 8px;
   text-decoration: none;
   color: #111111;
+  width: 100%;
 }
 
 .category-list .icon-box {
   width: 114px;
   height: 114px;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  background-color: #ffffff;
+  flex-shrink: 0;
 }
 
 .category-list .icon-box img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
 }
 
 .category-list span {
@@ -1435,7 +1436,6 @@ img {
   transition: transform 0.3s ease;
 }
 
-/* 마우스 오버용 딤 레이어 & 이동 아이콘 */
 .section-instagram .hover-overlay {
   position: absolute;
   top: 0;
@@ -1769,7 +1769,6 @@ img {
     height: 32px;
   }
 
-  /* 모바일 헤더 우측 아이콘 규격화 & 돋보기 비율 정돈 */
   .util-icons {
     display: flex;
     align-items: center;
@@ -1793,7 +1792,6 @@ img {
     image-rendering: -webkit-optimize-contrast;
   }
 
-  /* 돋보기 아이콘 시각적 두께감 보정 */
   .util-icons .icon-search img {
     width: 22px;
     height: 22px;
@@ -2097,6 +2095,7 @@ img {
     width: 90px;
   }
 
+  /* 모바일 카테고리 (피그마 48x48 규격 적용) */
   .section-categories {
     padding: 24px 16px;
     background-color: #f5f5f5;
@@ -2115,25 +2114,41 @@ img {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    gap: 8px 2px;
+    gap: 12px 0;
     width: 100%;
     max-width: none;
     margin: 0;
   }
 
   .section-categories .category-list li {
-    width: calc((100% - 55px) / 6);
-    min-width: 48px;
+    width: calc(100% / 6);
+    min-width: 0;
+    display: flex;
+    justify-content: center;
   }
 
   .section-categories .category-list a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     gap: 6px;
+    width: 48px;
   }
 
   .section-categories .category-list .icon-box {
     width: 48px;
     height: 48px;
+    aspect-ratio: 1 / 1;
     border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+    background-color: #ffffff;
+  }
+
+  .section-categories .category-list .icon-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 
   .section-categories .category-list span {
@@ -2141,6 +2156,8 @@ img {
     line-height: 1.4;
     letter-spacing: -0.025em;
     font-weight: 500;
+    text-align: center;
+    white-space: nowrap;
   }
 
   .section-bestseller {
