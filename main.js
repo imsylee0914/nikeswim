@@ -8,9 +8,8 @@ const playPauseImg = playPauseBtn ? playPauseBtn.querySelector('img') : null;
 
 let currentIndex = 0;
 let slideInterval = null;
-let isPlaying = true; // 기본 자동 재생 상태
+let isPlaying = true;
 
-// 슬라이드 변경 함수
 function showSlide(index) {
   currentIndex = index;
   heroItems.forEach((item, i) => {
@@ -28,7 +27,6 @@ function nextSlide() {
   }
 }
 
-// 자동 슬라이드 시작
 function startSlide() {
   if (!slideInterval && heroItems.length > 0) {
     slideInterval = setInterval(nextSlide, 4000);
@@ -40,25 +38,22 @@ function startSlide() {
   }
 }
 
-// 자동 슬라이드 멈춤
 function stopSlide() {
   if (slideInterval) {
     clearInterval(slideInterval);
     slideInterval = null;
     isPlaying = false;
     if (playPauseImg) {
-      playPauseImg.src = 'images/icon-play.png'; // 정지 시 play 아이콘으로 교체
+      playPauseImg.src = 'images/icon-play.png';
       playPauseImg.alt = '재생';
     }
   }
 }
 
-// 초기 실행
 if (heroItems.length > 0) {
   startSlide();
 }
 
-// 1) 도트 버튼 클릭 이벤트
 dots.forEach((dot, index) => {
   dot.addEventListener('click', () => {
     showSlide(index);
@@ -69,7 +64,6 @@ dots.forEach((dot, index) => {
   });
 });
 
-// 2) 재생/일시정지 버튼 토글 이벤트
 if (playPauseBtn) {
   playPauseBtn.addEventListener('click', () => {
     if (isPlaying) {
@@ -82,12 +76,38 @@ if (playPauseBtn) {
 
 
 // ==========================================
-// 2. 오프라인 매장 아코디언 & 지도 연동 및 공통 이벤트
+// 2. 오프라인 매장 아코디언 & 모바일 드로어 연동
 // ==========================================
 document.addEventListener('DOMContentLoaded', () => {
 
-  // 아코디언 제어
-  const accordionItems = document.querySelectorAll('.accordion-item');
+  const btnHamburger = document.querySelector('.btn-hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const header = document.querySelector('.header');
+
+  if (btnHamburger && mobileMenu && header) {
+    btnHamburger.addEventListener('click', () => {
+      mobileMenu.classList.toggle('active');
+      header.classList.toggle('menu-open');
+    });
+  }
+
+  const accordionToggles = document.querySelectorAll('.btn-accordion-toggle');
+
+  accordionToggles.forEach(toggle => {
+    toggle.addEventListener('click', function() {
+      const parentItem = this.closest('.accordion-item-nav');
+
+      document.querySelectorAll('.accordion-item-nav.has-sub').forEach(item => {
+        if (item !== parentItem) {
+          item.classList.remove('open');
+        }
+      });
+
+      parentItem.classList.toggle('open');
+    });
+  });
+
+  const accordionItems = document.querySelectorAll('.store-accordion .accordion-item');
   const mapImages = document.querySelectorAll('.map-img');
 
   accordionItems.forEach(item => {
@@ -117,7 +137,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // 찜하기 버튼 토글 이벤트
   const wishButtons = document.querySelectorAll('.btn-wish');
 
   wishButtons.forEach(button => {
@@ -129,7 +148,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // 인스타그램 모달 팝업 이벤트
   const instaItems = document.querySelectorAll('.insta-item');
   const modal = document.getElementById('instaModal');
   const modalImg = document.getElementById('modalImg');
@@ -151,7 +169,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (link) modalLink.href = link;
 
       modal.classList.add('active');
-      document.body.style.overflow = 'hidden'; // 배경 스크롤 방지
+      document.body.style.overflow = 'hidden';
     });
   });
 
@@ -166,7 +184,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-// 스크롤 감지: top-util 숨기고 header-main 고정
+// 스크롤 감지
 const headerElement = document.querySelector('.header');
 
 window.addEventListener('scroll', () => {

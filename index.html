@@ -184,8 +184,9 @@
             <a href="#" class="pc-only" aria-label="위시리스트"><img src="images/icon-heart.png" alt="위시리스트"></a>
             <a href="#" class="pc-only" aria-label="마이페이지"><img src="images/icon-user.png" alt="마이페이지"></a>
             <a href="#" aria-label="장바구니"><img src="images/icon-cart.png" alt="장바구니"></a>
-            <button type="button" class="btn-hamburger mobile-only" aria-label="메뉴 열기">
-              <img src="images/icon-menu.png" alt="메뉴">
+            <button type="button" class="btn-hamburger mobile-only" aria-label="메뉴 열기/닫기">
+              <img src="images/icon-menu.png" alt="메뉴" class="icon-menu-open">
+              <img src="images/icon-close.png" alt="닫기" class="icon-menu-close">
             </button>
           </div>
         </div>
@@ -193,6 +194,161 @@
       </div>
     </div>
   </header>
+
+  <!-- ==================== 모바일 전용 드로어 메뉴 ==================== -->
+  <nav class="mobile-menu-drawer mobile-only" id="mobileMenu">
+    <div class="drawer-search-wrap">
+      <div class="search-input-inner">
+        <input type="text" placeholder="검색어를 입력하세요" class="drawer-search-input">
+        <button type="button" class="btn-search-submit">
+          <img src="images/icon-search.png" alt="검색" class="icon-20">
+        </button>
+      </div>
+    </div>
+
+    <ul class="accordion-menu-list">
+      <li class="accordion-item-nav">
+        <a href="#" class="menu-title-nav">신제품</a>
+      </li>
+
+      <!-- 1. 남성 -->
+      <li class="accordion-item-nav has-sub">
+        <button type="button" class="menu-title-nav btn-accordion-toggle">
+          <span>남성</span>
+          <img src="images/icon-arrow-down.png" alt="열기" class="icon-20 arrow-icon">
+        </button>
+        <div class="sub-menu-content">
+          <div class="sub-group-nav">
+            <div class="group-badge">퍼포먼스</div>
+            <div class="sub-category-title">길이별</div>
+            <ul class="sub-item-grid">
+              <li><a href="#"><div class="img-box"><img src="images/gnb-men-1.jpg" alt="브리프"></div><span>브리프</span></a></li>
+              <li><a href="#"><div class="img-box"><img src="images/gnb-men-2.jpg" alt="스퀘어 레그"></div><span>스퀘어 레그</span></a></li>
+              <li><a href="#"><div class="img-box"><img src="images/gnb-men-3.jpg" alt="재머"></div><span>재머</span></a></li>
+            </ul>
+          </div>
+
+          <div class="sub-group-nav">
+            <div class="group-badge">레저</div>
+            <div class="sub-category-title">길이별</div>
+            <ul class="sub-item-grid">
+              <li><a href="#"><div class="img-box"><img src="images/gnb-men-leisure-1.jpg" alt="숏 슬리브"></div><span>숏 슬리브</span></a></li>
+              <li><a href="#"><div class="img-box"><img src="images/gnb-men-leisure-2.jpg" alt="트렁크 쇼츠"></div><span>트렁크 쇼츠</span></a></li>
+              <li><a href="#"><div class="img-box"><img src="images/gnb-men-leisure-3.jpg" alt="롱 슬리브"></div><span>롱 슬리브</span></a></li>
+            </ul>
+          </div>
+        </div>
+      </li>
+
+      <!-- 2. 여성 -->
+      <li class="accordion-item-nav has-sub">
+        <button type="button" class="menu-title-nav btn-accordion-toggle">
+          <span>여성</span>
+          <img src="images/icon-arrow-down.png" alt="열기" class="icon-20 arrow-icon">
+        </button>
+        <div class="sub-menu-content">
+          <div class="sub-group-nav">
+            <div class="group-badge">퍼포먼스</div>
+            <div class="sub-category-title">백 스타일</div>
+            <ul class="sub-item-grid">
+              <li><a href="#"><div class="img-box"><img src="images/gnb-women-1.jpg" alt="레이서백"></div><span>레이서백</span></a></li>
+              <li><a href="#"><div class="img-box"><img src="images/gnb-women-2.jpg" alt="패스트백"></div><span>패스트백</span></a></li>
+              <li><a href="#"><div class="img-box"><img src="images/gnb-women-3.jpg" alt="컷아웃"></div><span>컷아웃</span></a></li>
+              <li><a href="#"><div class="img-box"><img src="images/gnb-women-4.jpg" alt="스파이더백"></div><span>스파이더백</span></a></li>
+              <li><a href="#"><div class="img-box"><img src="images/gnb-women-5.jpg" alt="타이백"></div><span>타이백</span></a></li>
+              <li><a href="#"><div class="img-box"><img src="images/gnb-women-6.jpg" alt="크로스백"></div><span>크로스백</span></a></li>
+              <li><a href="#"><div class="img-box"><img src="images/gnb-women-7.jpg" alt="파워백"></div><span>파워백</span></a></li>
+              <li><a href="#"><div class="img-box"><img src="images/gnb-women-8.jpg" alt="하이넥"></div><span>하이넥</span></a></li>
+            </ul>
+            <div class="sub-category-title" style="margin-top: 16px;">컷 스타일</div>
+            <ul class="sub-item-grid circle">
+              <li><a href="#"><div class="img-box"><img src="images/gnb-women-cut-1.jpg" alt="하이컷"></div><span>하이컷</span></a></li>
+              <li><a href="#"><div class="img-box"><img src="images/gnb-women-cut-2.jpg" alt="미들컷"></div><span>미들컷</span></a></li>
+              <li><a href="#"><div class="img-box"><img src="images/gnb-women-cut-3.jpg" alt="로우컷"></div><span>로우컷</span></a></li>
+              <li><a href="#"><div class="img-box"><img src="images/gnb-women-cut-4.jpg" alt="반전신"></div><span>반전신</span></a></li>
+            </ul>
+          </div>
+
+          <div class="sub-group-nav">
+            <div class="group-badge">레저</div>
+            <ul class="sub-item-grid">
+              <li><a href="#"><div class="img-box"><img src="images/gnb-women-leisure-1.jpg" alt="비키니 탑"></div><span>비키니 탑</span></a></li>
+              <li><a href="#"><div class="img-box"><img src="images/gnb-women-leisure-2.jpg" alt="비키니 바텀"></div><span>비키니 바텀</span></a></li>
+              <li><a href="#"><div class="img-box"><img src="images/gnb-women-leisure-3.jpg" alt="롱 슬리브"></div><span>롱 슬리브</span></a></li>
+              <li><a href="#"><div class="img-box"><img src="images/gnb-women-leisure-4.jpg" alt="숏 슬리브"></div><span>숏 슬리브</span></a></li>
+              <li><a href="#"><div class="img-box"><img src="images/gnb-women-leisure-5.jpg" alt="쇼츠"></div><span>쇼츠</span></a></li>
+            </ul>
+          </div>
+        </div>
+      </li>
+
+      <!-- 3. 키즈 -->
+      <li class="accordion-item-nav has-sub">
+        <button type="button" class="menu-title-nav btn-accordion-toggle">
+          <span>키즈</span>
+          <img src="images/icon-arrow-down.png" alt="열기" class="icon-20 arrow-icon">
+        </button>
+        <div class="sub-menu-content">
+          <div class="sub-group-nav">
+            <div class="group-badge">퍼포먼스</div>
+            <div class="sub-category-title">여아</div>
+            <ul class="sub-item-grid">
+              <li><a href="#"><div class="img-box"><img src="images/gnb-kids-1.jpg" alt="여아 원피스"></div><span>여아 원피스</span></a></li>
+              <li><a href="#"><div class="img-box"><img src="images/gnb-kids-2.jpg" alt="여아 반전신"></div><span>여아 반전신</span></a></li>
+            </ul>
+            <div class="sub-category-title" style="margin-top: 16px;">남아</div>
+            <ul class="sub-item-grid">
+              <li><a href="#"><div class="img-box"><img src="images/gnb-kids-3.jpg" alt="스퀘어 레그"></div><span>스퀘어 레그</span></a></li>
+              <li><a href="#"><div class="img-box"><img src="images/gnb-kids-4.jpg" alt="재머"></div><span>재머</span></a></li>
+            </ul>
+          </div>
+
+          <div class="sub-group-nav">
+            <div class="group-badge">액세서리</div>
+            <ul class="sub-item-grid">
+              <li><a href="#"><div class="img-box"><img src="images/gnb-kids-5.jpg" alt="수경"></div><span>수경</span></a></li>
+              <li><a href="#"><div class="img-box"><img src="images/gnb-kids-6.jpg" alt="수모"></div><span>수모</span></a></li>
+              <li><a href="#"><div class="img-box"><img src="images/gnb-kids-7.jpg" alt="커버업 타월"></div><span>커버업 타월</span></a></li>
+            </ul>
+          </div>
+        </div>
+      </li>
+
+      <!-- 4. 악세서리 -->
+      <li class="accordion-item-nav has-sub">
+        <button type="button" class="menu-title-nav btn-accordion-toggle">
+          <span>악세서리</span>
+          <img src="images/icon-arrow-down.png" alt="열기" class="icon-20 arrow-icon">
+        </button>
+        <div class="sub-menu-content">
+          <div class="sub-group-nav">
+            <div class="group-badge">악세서리</div>
+            <ul class="sub-item-grid">
+              <li><a href="#"><div class="img-box"><img src="images/gnb-acc-1.jpg" alt="수경"></div><span>수경</span></a></li>
+              <li><a href="#"><div class="img-box"><img src="images/gnb-acc-2.jpg" alt="수모"></div><span>수모</span></a></li>
+              <li><a href="#"><div class="img-box"><img src="images/gnb-acc-3.jpg" alt="가방"></div><span>가방</span></a></li>
+              <li><a href="#"><div class="img-box"><img src="images/gnb-acc-4.jpg" alt="기타"></div><span>기타</span></a></li>
+            </ul>
+          </div>
+        </div>
+      </li>
+
+      <li class="accordion-item-nav">
+        <a href="#" class="menu-title-nav">아티클</a>
+      </li>
+    </ul>
+
+    <div class="drawer-footer-menu">
+      <div class="footer-menu-title">메뉴</div>
+      <ul class="footer-menu-list">
+        <li><a href="#">마이페이지</a></li>
+        <li><a href="#">위시리스트</a></li>
+        <li><a href="#">로그인</a></li>
+        <li><a href="#">매장찾기</a></li>
+        <li><a href="#">고객센터</a></li>
+      </ul>
+    </div>
+  </nav>
 
   <div class="dimm"></div>
 
